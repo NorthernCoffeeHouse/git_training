@@ -1,0 +1,490 @@
+# Git Training Material
+
+A practical, chapter-by-chapter course for learning Git. Examples use the command line and can be adapted to GitHub, GitLab, or another Git hosting service.
+
+## Learning outcomes
+
+By the end of this course, you should be able to:
+
+- Explain the difference between Git and a hosting service.
+- Create repositories, track changes, and make useful commits.
+- Work with branches and integrate changes safely.
+- Collaborate through remotes and pull requests.
+- Inspect history and recover from common mistakes.
+- Use tags and a basic release workflow.
+
+## Prerequisites and setup
+
+Install Git from [git-scm.com](https://git-scm.com/downloads). Open a terminal and confirm it is available:
+
+```bash
+git --version
+```
+
+Set the name and email that should appear in your commits:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --global init.defaultBranch main
+```
+
+Check your configuration:
+
+```bash
+git config --global --list
+```
+
+Use a practice folder for the exercises. Do not put passwords, API keys, or other secrets in a Git repository.
+
+---
+
+## Chapter 1 — Version control and Git fundamentals
+
+### What is version control?
+
+Version control records changes to files over time. It helps you compare versions, return to earlier work, and collaborate without passing around multiple copies of the same folder.
+
+Git is a distributed version control system. Each clone contains the repository's history, so many operations work without a network connection. Git is not the same thing as GitHub: Git manages versions, while GitHub and similar services host repositories and provide collaboration features.
+
+### The three main areas
+
+- **Working tree:** the files you are editing.
+- **Staging area (index):** the changes selected for the next commit.
+- **Repository:** the committed project history.
+
+Typical flow:
+
+```text
+edit files -> stage selected changes -> commit
+```
+
+### Try it
+
+Create a folder, enter it, initialize Git, and inspect the result:
+
+```bash
+mkdir git-practice
+cd git-practice
+git init
+git status
+```
+
+**Exercise:** In your own words, explain how Git differs from a hosting service.
+
+---
+
+## Chapter 2 — Creating a repository and making commits
+
+A commit is a saved snapshot of staged changes. A good commit describes one coherent change.
+
+```bash
+echo "# Git Practice" > README.md
+git status
+git add README.md
+git status
+git commit -m "Add project readme"
+git status
+```
+
+Inspect the latest commit:
+
+```bash
+git log -1
+git show
+```
+
+### Commit message guidance
+
+Prefer concise messages that say what the commit does:
+
+- `Add setup instructions`
+- `Fix date parsing for empty input`
+- `Remove unused sample data`
+
+Avoid messages such as `changes`, `update`, or `stuff`; they do not explain the intent.
+
+### Exercise
+
+Add a short description and a list of goals to `README.md`. Stage and commit those edits separately from the initial file creation.
+
+---
+
+## Chapter 3 — Tracking changes and the staging area
+
+Check the state of the project often:
+
+```bash
+git status
+```
+
+Review edits before staging:
+
+```bash
+git diff
+```
+
+Stage one file or a specific path:
+
+```bash
+git add README.md
+```
+
+Review what is staged:
+
+```bash
+git diff --staged
+```
+
+Commit staged changes:
+
+```bash
+git commit -m "Document project goals"
+```
+
+`git add .` stages changes under the current directory. It is convenient, but review `git status` first so that generated files or secrets are not included accidentally.
+
+### Unstage without deleting your edits
+
+```bash
+git restore --staged README.md
+```
+
+This removes the file from the staging area; it does not discard the working-tree edits.
+
+### Exercise
+
+Make changes to two files. Stage only one of them, inspect the staged diff, and commit it. Then stage and commit the other file.
+
+---
+
+## Chapter 4 — Ignoring files and reviewing changes
+
+Some files are local or generated and should not be tracked, such as build output, editor settings, or local environment files. Add patterns to a `.gitignore` file:
+
+```gitignore
+# Build output
+dist/
+build/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Operating system files
+.DS_Store
+Thumbs.db
+```
+
+Git ignore rules do not remove files that are already tracked. For a tracked file that should no longer be versioned, remove it from the index while keeping it locally:
+
+```bash
+git rm --cached path/to/file
+```
+
+Review recent changes:
+
+```bash
+git diff
+git diff --staged
+git log --oneline --decorate
+git show <commit-id>
+```
+
+### Exercise
+
+Create a temporary file matching one of your ignore rules. Check `git status` to confirm it is ignored. Do not use real credentials in this exercise.
+
+---
+
+## Chapter 5 — Branches and parallel work
+
+A branch is a movable name pointing to a commit. Branches make it possible to develop a feature or fix without changing the main line of work.
+
+```bash
+git branch
+git switch -c feature/add-intro
+```
+
+Edit a file, then commit the change:
+
+```bash
+git add README.md
+git commit -m "Add project introduction"
+```
+
+Return to the main branch and list branches:
+
+```bash
+git switch main
+git branch
+```
+
+The shorthand `git switch -c` creates and switches to a branch. Use descriptive names such as `feature/search-filter` or `fix/login-validation`.
+
+### Exercise
+
+Create a branch called `docs/add-usage`, add a Usage section to the README, and commit it. Switch back to `main` and confirm the change is not present there yet.
+
+---
+
+## Chapter 6 — Merging branches and resolving conflicts
+
+To integrate a completed branch, switch to the destination branch and merge:
+
+```bash
+git switch main
+git merge feature/add-intro
+```
+
+If two branches edit the same part of a file, Git may report a conflict. Open the affected file and look for conflict markers:
+
+```text
+<<<<<<< HEAD
+content on the current branch
+=======
+content being merged
+>>>>>>> feature-branch
+```
+
+Edit the file to keep the intended final content and remove all conflict markers. Then stage and complete the merge:
+
+```bash
+git add path/to/conflicted-file
+git status
+git commit
+```
+
+Git may create the merge commit automatically after staging; follow the instructions printed by Git. If you need to stop an in-progress merge before completing it:
+
+```bash
+git merge --abort
+```
+
+### Exercise
+
+Create two branches that change the same line differently. Merge one branch into the other and resolve the conflict. Confirm the final file contains the intended combined result.
+
+---
+
+## Chapter 7 — Remotes and collaborating
+
+A remote is a named connection to another copy of a repository. A hosted repository URL is commonly named `origin`.
+
+```bash
+git remote -v
+git remote add origin <repository-url>
+```
+
+Download remote updates and integrate them:
+
+```bash
+git fetch origin
+git pull
+```
+
+Publish a branch:
+
+```bash
+git push -u origin feature/add-intro
+```
+
+After the first push with `-u`, later pushes from that branch can usually use `git push`.
+
+In team workflows, changes are often proposed in a pull request or merge request. A typical sequence is:
+
+1. Create a feature branch.
+2. Make focused commits.
+3. Push the branch.
+4. Open a pull request for review.
+5. Address feedback and run checks.
+6. Merge using the team's chosen policy.
+
+`git pull` fetches and integrates changes. If you want to inspect remote updates before integrating, use `git fetch` first and review the resulting history.
+
+### Exercise
+
+If you have access to a hosted repository, clone it and push a small documentation branch. Otherwise, inspect `git remote -v` in a repository you already use and identify its remote name and URL.
+
+---
+
+## Chapter 8 — Undoing mistakes safely
+
+Choose an undo command based on where the change is:
+
+### Discard unstaged edits to a file
+
+```bash
+git restore path/to/file
+```
+
+This replaces the working-tree version with the version from the index. Uncommitted edits to that file are lost.
+
+### Unstage a file and keep its edits
+
+```bash
+git restore --staged path/to/file
+```
+
+### Create a new commit that reverses a previous commit
+
+```bash
+git revert <commit-id>
+```
+
+This is usually the safer way to undo a commit that has already been shared.
+
+### Amend the most recent local commit
+
+```bash
+git commit --amend
+```
+
+Amending changes the commit. Avoid amending commits that other people may already have based work on.
+
+Before undoing anything, inspect the state:
+
+```bash
+git status
+git log --oneline -5
+git diff
+```
+
+### Exercise
+
+Create an uncommitted edit and unstage a staged file. Practice the safe commands above. Do not use history-rewriting commands on a shared branch.
+
+---
+
+## Chapter 9 — Finding history and recovering work
+
+Useful history commands:
+
+```bash
+git log --oneline --graph --decorate --all
+git log -- path/to/file
+git blame path/to/file
+git show <commit-id>
+```
+
+`git reflog` records recent movements of local branch and `HEAD` references:
+
+```bash
+git reflog
+```
+
+It can help locate a commit after a local branch move or reset. Reflog entries are local and eventually expire, so they are not a substitute for backups.
+
+To inspect an earlier version of a file without changing the current branch:
+
+```bash
+git show <commit-id>:path/to/file
+```
+
+### Exercise
+
+Find the commit that last changed a file, inspect its diff, and use `git show <commit-id>:path/to/file` to view an earlier version.
+
+---
+
+## Chapter 10 — Tags and a basic release workflow
+
+Tags name important commits, commonly software releases. Create an annotated tag:
+
+```bash
+git tag -a v1.0.0 -m "Release version 1.0.0"
+git show v1.0.0
+```
+
+Push a tag to a remote:
+
+```bash
+git push origin v1.0.0
+```
+
+Push all local tags only when that is intended:
+
+```bash
+git push origin --tags
+```
+
+A basic release process may include reviewing changes, running tests, updating release notes, tagging the release commit, and publishing the tag through the hosting service.
+
+### Exercise
+
+Create an annotated tag on a practice repository and inspect it with `git show`.
+
+---
+
+## Chapter 11 — Recommended daily workflow
+
+For a small change:
+
+```bash
+git switch main
+git pull
+git switch -c feature/short-description
+# edit and test
+git status
+git diff
+git add <specific-files>
+git diff --staged
+git commit -m "Describe the change"
+git push -u origin feature/short-description
+```
+
+Then open a pull request, request review, address feedback, and merge according to the team's policy.
+
+### Good habits
+
+- Commit small, related changes.
+- Inspect `git status` and diffs before committing.
+- Use branches for independent work.
+- Pull or fetch regularly when collaborating.
+- Do not commit secrets, personal credentials, or unnecessary generated files.
+- Avoid rewriting public/shared history.
+- Agree with your team on merge, squash, or rebase policies.
+
+---
+
+## Chapter 12 — Capstone exercise
+
+Create a small documentation project and complete the following:
+
+1. Initialize a repository and add a README.
+2. Add a `.gitignore` appropriate for the project.
+3. Make at least three focused commits.
+4. Create a feature branch and add a new section.
+5. Create and resolve a merge conflict in a practice file.
+6. Review the project history using `git log --graph`.
+7. Create an annotated version tag.
+8. If a hosted remote is available, push the branch and tag and open a pull request.
+
+### Completion checklist
+
+- Can you explain working tree, staging area, and repository?
+- Can you review staged and unstaged changes separately?
+- Can you create, switch, merge, and delete a branch?
+- Can you resolve a conflict without leaving conflict markers behind?
+- Can you explain the difference between `fetch` and `pull`?
+- Can you choose a safe undo command for an uncommitted edit versus a shared commit?
+
+## Quick reference
+
+| Goal | Command |
+|---|---|
+| Check working tree | `git status` |
+| Review unstaged edits | `git diff` |
+| Stage a file | `git add <file>` |
+| Review staged edits | `git diff --staged` |
+| Commit staged edits | `git commit -m "message"` |
+| List branches | `git branch` |
+| Create and switch branch | `git switch -c <branch>` |
+| Switch branch | `git switch <branch>` |
+| Merge a branch | `git merge <branch>` |
+| View compact history | `git log --oneline --graph --decorate` |
+| Download remote updates | `git fetch` |
+| Fetch and integrate updates | `git pull` |
+| Publish current branch | `git push` |
+| Reverse a commit with a new commit | `git revert <commit-id>` |

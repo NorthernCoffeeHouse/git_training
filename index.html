@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f8fa">
+    <meta name="description" content="A practical, chapter-by-chapter guide to learning Git, with hands-on exercises and a quick command reference.">
+    <title>Git, step by step — Git Training</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#" aria-label="Git Training home">
+          <span class="brand-mark" aria-hidden="true">g.</span>
+          <span>Git Training<span class="brand-subtitle">A practical field guide</span></span>
+        </a>
+
+        <div class="course-progress">
+          <div class="progress-label">
+            <span>Your progress</span>
+            <span id="progress-count">0 / 12</span>
+          </div>
+          <div class="progress-track" role="progressbar" aria-label="Course progress" aria-valuemin="0" aria-valuemax="12" aria-valuenow="0" id="progress-bar">
+            <span id="progress-fill"></span>
+          </div>
+        </div>
+
+        <nav class="chapter-nav" aria-label="Course chapters">
+          <p class="nav-heading">THE COURSE</p>
+          <ol id="chapter-list"></ol>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <a class="source-link" href="Git-Training-Material.md">Read the course as Markdown <span aria-hidden="true">↗</span></a>
+          <span class="sidebar-note">Learn by doing. Keep your commits small.</span>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <button class="menu-button" id="menu-button" type="button" aria-label="Open chapter menu" aria-expanded="false">☰</button>
+          <div class="breadcrumbs"><span>GIT FIELD GUIDE</span><span aria-hidden="true">/</span><span id="breadcrumb-current">GETTING STARTED</span></div>
+          <div class="topbar-actions">
+            <label class="search-box">
+              <span aria-hidden="true">⌕</span>
+              <input id="search" type="search" placeholder="Find a chapter..." aria-label="Find a chapter">
+              <kbd>/</kbd>
+            </label>
+            <button class="theme-button" id="theme-button" type="button" aria-label="Switch to dark theme" title="Toggle theme">◐</button>
+          </div>
+        </header>
+
+        <article class="lesson" id="lesson" aria-live="polite"></article>
+
+        <footer class="page-footer">
+          <span>One step at a time. One commit at a time.</span>
+          <a href="Git-Training-Material.md">Full course source ↗</a>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
