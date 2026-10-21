@@ -211,7 +211,7 @@ function renderChapter(index) {
   currentChapter = index;
   const chapter = chapters[index];
   breadcrumbCurrent.textContent = chapter.label.toUpperCase();
-  document.title = `${chapter.title} — Git Training`;
+  document.title = `${chapter.title} — Git 101`;
   [...chapterList.querySelectorAll("button")].forEach((button, buttonIndex) => {
     if (buttonIndex === index) button.setAttribute("aria-current", "page");
     else button.removeAttribute("aria-current");
