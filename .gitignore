@@ -16,6 +16,10 @@ env/
 build/
 dist/
 *.egg-info/
+node_modules/
+.vercel/
+.netlify/
+*.log
 
 # Local environment files and secrets
 .env
@@ -28,3 +32,6 @@ dist/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+pages/git-training.md
+basetemplate.md

@@ -4,10 +4,13 @@ Chapter-by-chapter, hands-on material for learning Git from the command line. Th
 
 ## Start here
 
-Read the [Git Training Material](Git-Training-Material.md) and work through the chapters in order. Each chapter includes commands and exercises; the final chapter is a capstone project.
+Open the [Git Training page](pages/git-training.html) and work through the interactive chapters in order. Each chapter includes commands and exercises; the final chapter is a capstone project.
 
 ## Repository files
 
-- [Git-Training-Material.md](Git-Training-Material.md) — full course and command reference.
-- [.gitignore](.gitignore) — ignores common local, Python, editor, and operating-system files.
+- [index.html](index.html) — training library homepage and static-host entry point.
+- [pages/git-training.html](pages/git-training.html) — Git course page.
+- [assets/css/styles.css](assets/css/styles.css) — shared styles for both pages.
+- [assets/js/home.js](assets/js/home.js) and [assets/js/app.js](assets/js/app.js) — homepage and course interactions.
+- [.gitignore](.gitignore) — ignores build output, local tooling, secrets, and editor/operating-system files.
 - [.gitattributes](.gitattributes) — keeps text files consistently normalized to LF line endings.

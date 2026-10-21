@@ -4,61 +4,105 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f7f8fa">
-    <meta name="description" content="A practical, chapter-by-chapter guide to learning Git, with hands-on exercises and a quick command reference.">
-    <title>Git, step by step — Git Training</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="app.js" defer></script>
+    <meta name="description" content="Choose a hands-on training course and learn something new, one chapter at a time.">
+    <title>Training Library — Learn by doing</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/home.js" defer></script>
   </head>
   <body>
-    <div class="app-shell">
-      <aside class="sidebar" id="sidebar">
-        <a class="brand" href="#" aria-label="Git Training home">
-          <span class="brand-mark" aria-hidden="true">g.</span>
-          <span>Git Training<span class="brand-subtitle">A practical field guide</span></span>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="index.html" aria-label="Training Library home">
+          <span class="brand-mark" aria-hidden="true">↗</span>
+          <span>Learn by doing<span class="brand-caption">A library of practical field guides</span></span>
         </a>
-
-        <div class="course-progress">
-          <div class="progress-label">
-            <span>Your progress</span>
-            <span id="progress-count">0 / 12</span>
-          </div>
-          <div class="progress-track" role="progressbar" aria-label="Course progress" aria-valuemin="0" aria-valuemax="12" aria-valuenow="0" id="progress-bar">
-            <span id="progress-fill"></span>
-          </div>
+        <div class="site-header-actions">
+          <span class="header-label"><span class="status-dot"></span> YOUR TRAINING LIBRARY</span>
+          <button class="theme-button" id="theme-button" type="button" aria-label="Switch to dark theme" title="Toggle theme">◐</button>
         </div>
+      </header>
 
-        <nav class="chapter-nav" aria-label="Course chapters">
-          <p class="nav-heading">THE COURSE</p>
-          <ol id="chapter-list"></ol>
-        </nav>
-
-        <div class="sidebar-bottom">
-          <a class="source-link" href="Git-Training-Material.md">Read the course as Markdown <span aria-hidden="true">↗</span></a>
-          <span class="sidebar-note">Learn by doing. Keep your commits small.</span>
-        </div>
-      </aside>
-
-      <main class="main-panel">
-        <header class="topbar">
-          <button class="menu-button" id="menu-button" type="button" aria-label="Open chapter menu" aria-expanded="false">☰</button>
-          <div class="breadcrumbs"><span>GIT FIELD GUIDE</span><span aria-hidden="true">/</span><span id="breadcrumb-current">GETTING STARTED</span></div>
-          <div class="topbar-actions">
-            <label class="search-box">
-              <span aria-hidden="true">⌕</span>
-              <input id="search" type="search" placeholder="Find a chapter..." aria-label="Find a chapter">
-              <kbd>/</kbd>
-            </label>
-            <button class="theme-button" id="theme-button" type="button" aria-label="Switch to dark theme" title="Toggle theme">◐</button>
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <p class="eyebrow">THE LEARNING LIBRARY</p>
+          <h1 id="page-title">Pick a path.<br><span>Build a skill.</span></h1>
+          <p class="intro-copy">Practical, chapter-by-chapter training for the tools and ideas that power your work. Choose a course to get started.</p>
+          <div class="section-tabs" role="group" aria-label="Filter courses">
+            <button class="tab is-active" type="button" data-filter="all" aria-pressed="true">All courses <span>09</span></button>
+            <button class="tab" type="button" data-filter="available" aria-pressed="false">Available now <span>01</span></button>
           </div>
-        </header>
+        </section>
 
-        <article class="lesson" id="lesson" aria-live="polite"></article>
+        <section class="course-grid" aria-label="Training courses">
+          <a class="course-card course-card-live" href="pages/git-training.html">
+            <span class="card-topline"><span class="course-icon git-icon" aria-hidden="true">git</span><span class="card-status available"><span></span> Available</span></span>
+            <span class="course-title">Git Training</span>
+            <span class="course-description">Learn version control from your first commit to collaborating with a team.</span>
+            <span class="card-bottom"><span>12 chapters <span class="meta-divider">·</span> Hands-on</span><span class="card-arrow" aria-hidden="true">↗</span></span>
+          </a>
 
-        <footer class="page-footer">
-          <span>One step at a time. One commit at a time.</span>
-          <a href="Git-Training-Material.md">Full course source ↗</a>
-        </footer>
+          <article class="course-card course-card-soon">
+            <span class="card-topline"><span class="course-icon python-icon" aria-hidden="true">Py</span><span class="card-status">Coming soon</span></span>
+            <span class="course-title">Python Essentials</span>
+            <span class="course-description">Build a solid foundation in Python, from core syntax to useful scripts.</span>
+            <span class="card-bottom"><span>Course in the works</span><span class="lock-icon" aria-hidden="true">···</span></span>
+          </article>
+
+          <article class="course-card course-card-soon">
+            <span class="card-topline"><span class="course-icon linux-icon" aria-hidden="true">$_</span><span class="card-status">Coming soon</span></span>
+            <span class="course-title">Linux &amp; Shell</span>
+            <span class="course-description">Navigate the command line and automate everyday work with confidence.</span>
+            <span class="card-bottom"><span>Course in the works</span><span class="lock-icon" aria-hidden="true">···</span></span>
+          </article>
+
+          <article class="course-card course-card-soon">
+            <span class="card-topline"><span class="course-icon docker-icon" aria-hidden="true">▤</span><span class="card-status">Coming soon</span></span>
+            <span class="course-title">Docker &amp; Containers</span>
+            <span class="course-description">Package applications and understand the building blocks of containers.</span>
+            <span class="card-bottom"><span>Course in the works</span><span class="lock-icon" aria-hidden="true">···</span></span>
+          </article>
+
+          <article class="course-card course-card-soon">
+            <span class="card-topline"><span class="course-icon k8s-icon" aria-hidden="true">⎈</span><span class="card-status">Coming soon</span></span>
+            <span class="course-title">Kubernetes Basics</span>
+            <span class="course-description">Explore the concepts behind deploying and managing container workloads.</span>
+            <span class="card-bottom"><span>Course in the works</span><span class="lock-icon" aria-hidden="true">···</span></span>
+          </article>
+
+          <article class="course-card course-card-soon">
+            <span class="card-topline"><span class="course-icon cicd-icon" aria-hidden="true">↻</span><span class="card-status">Coming soon</span></span>
+            <span class="course-title">CI/CD Pipelines</span>
+            <span class="course-description">Turn repeatable builds, tests, and deployments into a reliable workflow.</span>
+            <span class="card-bottom"><span>Course in the works</span><span class="lock-icon" aria-hidden="true">···</span></span>
+          </article>
+
+          <article class="course-card course-card-soon">
+            <span class="card-topline"><span class="course-icon terraform-icon" aria-hidden="true">⌘</span><span class="card-status">Coming soon</span></span>
+            <span class="course-title">Terraform &amp; IaC</span>
+            <span class="course-description">Describe infrastructure as code and learn the shape of a safe workflow.</span>
+            <span class="card-bottom"><span>Course in the works</span><span class="lock-icon" aria-hidden="true">···</span></span>
+          </article>
+
+          <article class="course-card course-card-soon">
+            <span class="card-topline"><span class="course-icon cloud-icon" aria-hidden="true">☁</span><span class="card-status">Coming soon</span></span>
+            <span class="course-title">Cloud Fundamentals</span>
+            <span class="course-description">Get to know the core concepts behind modern cloud platforms.</span>
+            <span class="card-bottom"><span>Course in the works</span><span class="lock-icon" aria-hidden="true">···</span></span>
+          </article>
+
+          <article class="course-card course-card-soon">
+            <span class="card-topline"><span class="course-icon observability-icon" aria-hidden="true">◉</span><span class="card-status">Coming soon</span></span>
+            <span class="course-title">Monitoring &amp; Observability</span>
+            <span class="course-description">Make sense of logs, metrics, and traces to understand system health.</span>
+            <span class="card-bottom"><span>Course in the works</span><span class="lock-icon" aria-hidden="true">···</span></span>
+          </article>
+        </section>
       </main>
+
+      <footer class="site-footer">
+        <span>Small lessons. Practical skills. Progress you can see.</span>
+        <span>Explore practical skills, one chapter at a time.</span>
+      </footer>
     </div>
   </body>
 </html>
