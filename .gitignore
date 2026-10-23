@@ -1,30 +1,5 @@
 # Python bytecode and caches
 __pycache__/
-*.py[cod]
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.coverage
-htmlcov/
-
-# Virtual environments
-.venv/
-venv/
-env/
-
-# Build and packaging output
-build/
-dist/
-*.egg-info/
-node_modules/
-.vercel/
-.netlify/
-*.log
-
-# Local environment files and secrets
-.env
-.env.*
-!.env.example
 
 # Editor and operating system files
 .idea/
@@ -35,3 +10,5 @@ Desktop.ini
 
 pages/git-training.md
 basetemplate.md
+_notebook/
+.github/
