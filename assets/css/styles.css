@@ -372,14 +372,7 @@ body[data-theme="dark"] .guide-content .guide-callout strong { color: #edb76d; }
 .page-shell .card-topline { display: flex; min-height: 31px; align-items: center; justify-content: space-between; }
 .page-shell .course-icon { display: grid; width: 31px; height: 31px; place-items: center; border-radius: 8px; font-family: Consolas, monospace; font-size: 12px; font-weight: 700; }
 .page-shell .git-icon { background: var(--accent-soft); color: var(--accent); font-size: 10px; }
-.page-shell .python-icon { background: #eef2fb; color: #526ca4; }
-.page-shell .linux-icon { background: #f3f0e9; color: #7d6a43; }
-.page-shell .docker-icon { background: #eaf4fb; color: #4383aa; }
-.page-shell .k8s-icon { background: #edf1fb; color: #526fb1; font-size: 17px; }
-.page-shell .cicd-icon { background: #eff6ed; color: #648a50; font-size: 19px; }
-.page-shell .terraform-icon { background: #f5eefb; color: #8257a4; }
-.page-shell .cloud-icon { background: #edf5fa; color: #5486a3; font-size: 18px; }
-.page-shell .observability-icon { background: #f9eff0; color: #ab5c68; font-size: 16px; }
+.page-shell .placeholder-icon { background: #f2f4f6; color: var(--muted); font-size: 9px; }
 .page-shell .card-status { display: inline-flex; align-items: center; gap: 6px; padding: 4px 7px; border-radius: 4px; background: #f2f4f6; color: var(--muted); font-size: 9px; font-weight: 600; }
 .page-shell .card-status.available { background: var(--green-soft); color: var(--green); }
 .page-shell .card-status.available span { width: 6px; height: 6px; }

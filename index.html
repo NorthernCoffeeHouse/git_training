@@ -7,7 +7,7 @@
     <meta name="description" content="Choose a hands-on training course and learn something new, one chapter at a time.">
     <title>Training Library — Learn by doing</title>
     <link rel="stylesheet" href="assets/css/styles.css">
-    <script src="assets/js/home.js" defer></script>
+    <script src="assets/js/home.js" defer data-markdown-src="index.md"></script>
   </head>
   <body>
     <div class="page-shell">
@@ -22,88 +22,10 @@
         </div>
       </header>
 
-      <main>
-        <section class="intro" aria-labelledby="page-title">
-          <p class="eyebrow">THE LEARNING LIBRARY</p>
-          <h1 id="page-title">Pick a path.<br><span>Build a skill.</span></h1>
-          <p class="intro-copy">Practical, chapter-by-chapter training for the tools and ideas that power your work. Choose a course to get started.</p>
-          <div class="section-tabs" role="group" aria-label="Filter courses">
-            <button class="tab is-active" type="button" data-filter="all" aria-pressed="true">All courses <span>10</span></button>
-            <button class="tab" type="button" data-filter="available" aria-pressed="false">Available now <span>02</span></button>
-          </div>
-        </section>
-
-        <section class="course-grid" aria-label="Training courses">
-          <a class="course-card course-card-live" href="pages/Git-101.html">
-            <span class="card-topline"><span class="course-icon git-icon" aria-hidden="true">git</span><span class="card-status available"><span></span> Available</span></span>
-            <span class="course-title">Git 101</span>
-            <span class="course-description">Learn version control from your first commit to collaborating with a team.</span>
-            <span class="card-bottom"><span>12 chapters <span class="meta-divider">·</span> Hands-on</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </a>
-
-          <a class="course-card course-card-live" href="pages/Unreal-Survival-Horror-FPS.html">
-            <span class="card-topline"><span class="course-icon horror-icon" aria-hidden="true">UE</span><span class="card-status available"><span></span> Available</span></span>
-            <span class="course-title">Survival Horror FPS — Unreal Engine</span>
-            <span class="course-description">A production-minded field guide to building dread, readable combat, and a shippable first-person horror game.</span>
-            <span class="card-bottom"><span>Field guide <span class="meta-divider">·</span> Unreal Engine</span><span class="card-arrow" aria-hidden="true">↗</span></span>
-          </a>
-
-          <article class="course-card course-card-soon">
-            <span class="card-topline"><span class="course-icon python-icon" aria-hidden="true">Py</span><span class="card-status">Coming soon</span></span>
-            <span class="course-title">Python Essentials</span>
-            <span class="course-description">Build a solid foundation in Python, from core syntax to useful scripts.</span>
-            <span class="card-bottom"><span>Course in the works</span><span class="lock-icon" aria-hidden="true">···</span></span>
-          </article>
-
-          <article class="course-card course-card-soon">
-            <span class="card-topline"><span class="course-icon linux-icon" aria-hidden="true">$_</span><span class="card-status">Coming soon</span></span>
-            <span class="course-title">Linux &amp; Shell</span>
-            <span class="course-description">Navigate the command line and automate everyday work with confidence.</span>
-            <span class="card-bottom"><span>Course in the works</span><span class="lock-icon" aria-hidden="true">···</span></span>
-          </article>
-
-          <article class="course-card course-card-soon">
-            <span class="card-topline"><span class="course-icon docker-icon" aria-hidden="true">▤</span><span class="card-status">Coming soon</span></span>
-            <span class="course-title">Docker &amp; Containers</span>
-            <span class="course-description">Package applications and understand the building blocks of containers.</span>
-            <span class="card-bottom"><span>Course in the works</span><span class="lock-icon" aria-hidden="true">···</span></span>
-          </article>
-
-          <article class="course-card course-card-soon">
-            <span class="card-topline"><span class="course-icon k8s-icon" aria-hidden="true">⎈</span><span class="card-status">Coming soon</span></span>
-            <span class="course-title">Kubernetes Basics</span>
-            <span class="course-description">Explore the concepts behind deploying and managing container workloads.</span>
-            <span class="card-bottom"><span>Course in the works</span><span class="lock-icon" aria-hidden="true">···</span></span>
-          </article>
-
-          <article class="course-card course-card-soon">
-            <span class="card-topline"><span class="course-icon cicd-icon" aria-hidden="true">↻</span><span class="card-status">Coming soon</span></span>
-            <span class="course-title">CI/CD Pipelines</span>
-            <span class="course-description">Turn repeatable builds, tests, and deployments into a reliable workflow.</span>
-            <span class="card-bottom"><span>Course in the works</span><span class="lock-icon" aria-hidden="true">···</span></span>
-          </article>
-
-          <article class="course-card course-card-soon">
-            <span class="card-topline"><span class="course-icon terraform-icon" aria-hidden="true">⌘</span><span class="card-status">Coming soon</span></span>
-            <span class="course-title">Terraform &amp; IaC</span>
-            <span class="course-description">Describe infrastructure as code and learn the shape of a safe workflow.</span>
-            <span class="card-bottom"><span>Course in the works</span><span class="lock-icon" aria-hidden="true">···</span></span>
-          </article>
-
-          <article class="course-card course-card-soon">
-            <span class="card-topline"><span class="course-icon cloud-icon" aria-hidden="true">☁</span><span class="card-status">Coming soon</span></span>
-            <span class="course-title">Cloud Fundamentals</span>
-            <span class="course-description">Get to know the core concepts behind modern cloud platforms.</span>
-            <span class="card-bottom"><span>Course in the works</span><span class="lock-icon" aria-hidden="true">···</span></span>
-          </article>
-
-          <article class="course-card course-card-soon">
-            <span class="card-topline"><span class="course-icon observability-icon" aria-hidden="true">◉</span><span class="card-status">Coming soon</span></span>
-            <span class="course-title">Monitoring &amp; Observability</span>
-            <span class="course-description">Make sense of logs, metrics, and traces to understand system health.</span>
-            <span class="card-bottom"><span>Course in the works</span><span class="lock-icon" aria-hidden="true">···</span></span>
-          </article>
-        </section>
+      <main id="home" aria-busy="true">
+        <div id="home-content" aria-live="polite">
+          <p>Loading the training library…</p>
+        </div>
       </main>
 
       <footer class="site-footer">

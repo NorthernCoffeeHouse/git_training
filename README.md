@@ -9,7 +9,8 @@ Practical, chapter-by-chapter training for tools and ideas that power your work.
 
 ## Repository files
 
-- [index.html](index.html) — training library homepage and static-host entry point.
+- [index.md](index.md) — source content for the training library homepage and course listings.
+- [index.html](index.html) — static-host entry point that loads and renders the homepage Markdown.
 - [pages/Git-101.html](pages/Git-101.html) — interactive Git 101 course page.
 - [pages/Git-101.md](pages/Git-101.md) — Git 101 course and command reference.
 - [pages/Unreal-Survival-Horror-FPS.md](pages/Unreal-Survival-Horror-FPS.md) — Markdown source for the Unreal Engine survival horror FPS field guide.
