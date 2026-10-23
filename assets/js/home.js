@@ -1,3 +1,4 @@
+(() => {
 const home = document.querySelector("#home");
 const homeContent = document.querySelector("#home-content");
 const themeButton = document.querySelector("#theme-button");
@@ -169,3 +170,4 @@ if (themeButton) {
     themeButton.setAttribute("aria-label", "Switch to light theme");
   }
 }
+})();
